@@ -14,18 +14,19 @@ const Layout  = ({title, descr, urlBg, colorBg, position}) => {
     const mybackgroundColor = {
         backgroundColor: colorBg
     }
+   
     
   
   return (
     <>
     <section className={styles.root} >
-    <div className={styles.wrapper} style={urlBg ? myBacgroundImg : mybackgroundColor}>
+    <div className={styles.wrapper} style={urlBg ? myBacgroundImg : colorBg ? mybackgroundColor : {}}>
         <article>
             <div className={styles.title}>
                 <h3>{title}</h3>
                 <span className={styles.separator}></span>
             </div>
-            <div className={`${styles.desc} ${styles.full}`}>
+            <div className={[styles.desc, styles.full].join(' ')}>
                 <p>{descr}</p>
             </div>
         </article>
