@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Layout.module.css'
 
 
-const Layout = ({ title, descr, urlBg, colorBg, position, children }) => {
+const Layout = ({ title, urlBg, colorBg, position, children }) => {
 
     const myBacgroundImg = {
         backgroundImage: `url(${urlBg})`,

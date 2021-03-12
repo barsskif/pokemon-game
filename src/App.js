@@ -55,8 +55,7 @@ title='Cards'
 </Layout>
 
 <Layout
- title=' Layout header text' 
- descr = 'Layout header text descr' 
+ title=' Layout header text'  
  urlBg = {bg2} />
 
 <Footer />
