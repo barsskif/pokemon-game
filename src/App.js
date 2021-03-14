@@ -41,7 +41,7 @@ title='Cards'
 >
 <div className="flex">
           {
-            PokemonItems.map(({id, key, name, img, type, values}) =>
+            PokemonItems.map(({id, name, img, type, values}) =>
               <PokemonCard
                 key={id}
                 name={name}
