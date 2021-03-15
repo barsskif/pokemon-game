@@ -65,13 +65,15 @@
 }
 
 .btn{  
-    height: 5%;
+    height: 50px;
+    padding-top: 5px;
     margin-top: 20px;
     font-family: 'Overlock', Arial, Helvetica, sans-serif;
     border: 1px solid black;
     text-align: center;
     cursor: pointer;
     border-radius: 3px;
+    justify-content: center;
 }
 .btn:hover{
     background-color: chocolate;
