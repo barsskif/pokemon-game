@@ -1,11 +1,13 @@
+import cn from 'classnames'
+
+
 import style from './style.module.css'
 
 
 
-const Menu = ({activeM}) => {
+const Menu = ({active}) => {
     return (
-        <div className={`${style.menuContainer} ${activeM ? style.active  : style.deactive }`}>
-            {/* className={`${style.menuButton} ${activeM ? style.active : " "}` } */}
+        <div className={cn(style.menuContainer, {[style.active]: active}, {[style.deactive]:!active} )}>
         <div className={style.overlay} />
         <div className={style.menuItems}>
           <ul>

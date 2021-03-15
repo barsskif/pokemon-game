@@ -13,8 +13,8 @@ setButtonNavBar(stateButtonNavBar => !stateButtonNavBar)
     }
     return (
 <>
-<NavBar onButtonNavBar = {hendelButtonMenu} activeM = {stateButtonNavBar}/>
-<Menu activeM = {stateButtonNavBar} />
+<NavBar onButtonNavBar = {hendelButtonMenu} active = {stateButtonNavBar}/>
+<Menu active = {stateButtonNavBar} />
 
 </>
     )

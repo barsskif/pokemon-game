@@ -1,6 +1,9 @@
+import cn from 'classnames'
+
+
 import style from './style.module.css'
 
-const NavBar = ({onButtonNavBar, activeM}) => {
+const NavBar = ({onButtonNavBar, active}) => {
 
     const hendelClickExit = () =>{
         onButtonNavBar()
@@ -12,7 +15,8 @@ const NavBar = ({onButtonNavBar, activeM}) => {
                     <p className={style.brand}>
                         LOGO
     </p>
-                    <a className={`${style.menuButton} ${activeM ? style.active : " "}` } onClick = {hendelClickExit}>
+                    <a className={cn(style.menuButton,{[style.active]: active})} 
+                     onClick = {hendelClickExit}>
                         <span />
                     </a>
                 </div>

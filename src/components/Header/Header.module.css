@@ -64,6 +64,19 @@
     animation: text-fade-in 1000ms 800ms forwards;
 }
 
+.btn{  
+    height: 5%;
+    margin-top: 20px;
+    font-family: 'Overlock', Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.btn:hover{
+    background-color: chocolate;
+}
+
 @keyframes text-fade-in {
     from {
         right: 0;

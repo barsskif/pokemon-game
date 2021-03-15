@@ -10,7 +10,6 @@ const App = () =>{
   }
 
   const hendleChengeExitGame = (page) =>{
-    
     setPage(page)
   }
 
@@ -18,7 +17,7 @@ const App = () =>{
       case "app":
         return <HomePage onChangePage = {hendleChengePage}/> 
     case "game":
-      return <GamePage onTest = {hendleChengeExitGame} />
+      return <GamePage onGemePage = {hendleChengeExitGame} />
       default:
         return <HomePage />
       

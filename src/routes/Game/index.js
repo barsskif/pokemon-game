@@ -1,18 +1,21 @@
-const GamePage = ({onTest}) =>{
+import style from './style.module.css'
 
-    const hendleClickButtoinExit = () =>{
-        onTest && onTest('app')  
+
+const GamePage = ({ onGemePage }) => {
+
+    const hendleClickButtoinExit = () => {
+        onGemePage && onGemePage('app')
     }
 
 
     return (
         <>
-        <div>
-        <p>GAmePage</p>
-        <button onClick = {hendleClickButtoinExit}>
-            Exit 
+            <div>
+                <p  >GamePage</p>
+                <button className={style.test} onClick={hendleClickButtoinExit}>
+                    Exit
         </button>
-        </div>
+            </div>
         </>
     )
 }

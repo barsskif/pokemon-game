@@ -15,9 +15,12 @@ const Header = ({onClickButton}) =>{
         <div className={styles.container}>
             <h1>This is title</h1>
             <p>This is Description!</p>
-            <button onClick = {hendelClick} >
+            <div className={styles.btn}>
+            <p onClick = {hendelClick} >
                 Start Game
-            </button>
+            </p>
+            </div>
+           
         </div>
     </header>
     );
