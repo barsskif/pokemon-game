@@ -25,7 +25,7 @@ const Layout = ({ title, urlBg, colorBg, position, children }) => {
                             <span className={styles.separator}></span>
                         </div>
                         <div className={[styles.desc, styles.full].join(' ')}>
-                            <p>{children}</p>
+                            <div>{children}</div>
                         </div>
                     </article>
                 </div>
