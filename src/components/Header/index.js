@@ -1,5 +1,7 @@
 import React from 'react';
 
+import alarm from "../../static/alar.mp3";
+
 import styles from './Header.module.css'
 
 
@@ -7,7 +9,9 @@ const Header = ({onClickButton}) =>{
 
     const hendelClick = () =>{
         onClickButton && onClickButton('game')
+        new Audio(alarm).play(); 
     }
+    console.log(alarm)
     
     return (
         <header className={styles.root}>
@@ -18,6 +22,7 @@ const Header = ({onClickButton}) =>{
             <div className={styles.btn}>
             <p onClick = {hendelClick} >
                 Start Game
+                
             </p>
             </div>
            
