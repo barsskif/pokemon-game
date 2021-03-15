@@ -69,14 +69,14 @@
     padding-top: 5px;
     margin-top: 20px;
     font-family: 'Overlock', Arial, Helvetica, sans-serif;
-    border: 1px solid black;
+    border: 1px solid rgb(236, 169, 169);
     text-align: center;
     cursor: pointer;
     border-radius: 3px;
     justify-content: center;
 }
 .btn:hover{
-    background-color: chocolate;
+    background-color: rgb(128, 122, 118);
 }
 
 @keyframes text-fade-in {
