@@ -16,13 +16,12 @@ const App = () =>{
 
     switch (page) {
       case "app":
-        return <HomePage onChangePage = {hendleChengePage}/>
-        break;
+        return <HomePage onChangePage = {hendleChengePage}/> 
     case "game":
       return <GamePage onTest = {hendleChengeExitGame} />
       default:
         return <HomePage />
-        break;
+      
     }
  
 }

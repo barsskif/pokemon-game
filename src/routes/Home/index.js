@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
 import PokemonCard from '../../components/PokemonCard'
+import MenuHeader from '../../components/MenuHeader'
 
 
 import PokemonItems from "../../PokemonItems.json"
@@ -18,7 +19,7 @@ function HomePage({onChangePage}) {
     }
   return (
 <>
-
+<MenuHeader/>
 <Header 
 title='header text' 
 descr = 'header text descr'
