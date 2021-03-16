@@ -11,7 +11,7 @@ const Header = ({onClickButton}) =>{
         onClickButton && onClickButton('game')
         new Audio(alarm).play(); 
     }
-    console.log(alarm)
+
     
     return (
         <header className={styles.root}>
