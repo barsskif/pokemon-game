@@ -1,28 +1,28 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import GamePage from './routes/Game';
 import HomePage from './routes/Home';
 
-const App = () =>{
-  
+const App = () => {
+
   const [page, setPage] = useState('app')
-  const hendleChengePage = (page) =>{
+  const hendleChengePage = (page) => {
     setPage(page)
   }
 
-  const hendleChengeExitGame = (page) =>{
+  const hendleChengeExitGame = (page) => {
     setPage(page)
   }
 
-    switch (page) {
-      case "app":
-        return <HomePage onChangePage = {hendleChengePage}/> 
+  switch (page) {
+    case "app":
+      return <HomePage onChangePage={hendleChengePage} />
     case "game":
-      return <GamePage onGemePage = {hendleChengeExitGame} />
-      default:
-        return <HomePage />
-      
-    }
- 
+      return <GamePage onGemePage={hendleChengeExitGame} />
+    default:
+      return <HomePage />
+
+  }
+
 }
 
 export default App;

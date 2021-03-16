@@ -15,14 +15,14 @@ const PokemonCard = ({ name, img, id, type, values }) => {
 
         <>
             <div className={style.root} onClick={hendelClick}>
-                <div className={cn(style.pokemonCard, {[style.active]:isActive})}>
+                <div className={cn(style.pokemonCard, { [style.active]: isActive })}>
                     <div className={style.cardFront}>
                         <div className={cn(style.wrap, style.front)}>
                             <div className={cn(style.pokemon, style[type])}>
                                 <div className={style.values}>
                                     <div className={cn(style.count, style.top)}>{values.top}</div>
-                                    <div className={cn(style.count, style.right )}>{values.right}</div>
-                                    <div className={cn(style.count,style.bottom)}>{values.bottom}</div>
+                                    <div className={cn(style.count, style.right)}>{values.right}</div>
+                                    <div className={cn(style.count, style.bottom)}>{values.bottom}</div>
                                     <div className={cn(style.count, style.left)}>{values.left}</div>
                                 </div>
                                 <div className={style.imgContainer}>
