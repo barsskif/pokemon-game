@@ -13,8 +13,8 @@ const MenuHeader = () => {
     }
     return (
         <>
-            <NavBar onButtonNavBar={hendelButtonMenu} active={stateButtonNavBar} />
-            <Menu active={stateButtonNavBar} />
+            <NavBar onButtonNavBar={hendelButtonMenu} isActive={stateButtonNavBar} />
+            <Menu isActive={stateButtonNavBar} />
 
         </>
     )

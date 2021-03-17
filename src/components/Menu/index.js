@@ -5,13 +5,13 @@ import style from './style.module.css'
 
 
 
-const Menu = ({ active }) => {
+const Menu = ({ isActive }) => {
 
  
   
   return (
     // <div className={cn(style.menuContainer, { [style.active]: active }, { [style.deactive]: !active })}>
-      <div className={cn(style.menuContainer,  {[style.active]: active }, {[style.deactive]: !active})}>
+      <div className={cn(style.menuContainer,  {[style.active]: isActive }, {[style.deactive]: !isActive})}>
       <div className={style.overlay} />
       <div className={style.menuItems}>
         <ul>
