@@ -1,14 +1,16 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom'
 
 import alarm from "../../static/alar.mp3";
 
 import styles from './Header.module.css'
 
 
-const Header = ({onClickButton}) =>{
+const Header = () =>{
+const history = useHistory();
 
-    const hendelClick = () =>{
-        onClickButton && onClickButton('game')
+    const handleClick = () =>{
+        history.push('/game')
         new Audio(alarm).play(); 
     }
 
@@ -22,7 +24,7 @@ const Header = ({onClickButton}) =>{
             <h1>This is title</h1>
             <p>This is Description!</p>
             <div className={styles.btn}>
-            <p onClick = {hendelClick} >
+            <p onClick = {handleClick} >
                 Start Game
                 
             </p>

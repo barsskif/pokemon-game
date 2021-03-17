@@ -26,7 +26,7 @@ const MENU = [
 ]
 
 
-const Menu = ({ isActive, test }) => {
+const Menu = ({ isActive, handelButton }) => {
 
   return (
     <div className={cn(style.menuContainer, { [style.active]: isActive, [style.deactive]: !isActive })}>
@@ -34,8 +34,8 @@ const Menu = ({ isActive, test }) => {
       <div className={style.menuItems}>
         <ul>
 
-          {MENU.map(({ title, to, index }) => (
-            <li key={index} onClick={() => test()}>
+          {MENU.map(({title, to}, index) => (
+            <li key={index} onClick={() => handelButton()}>
               <Link to={to}>
                 {title}
               </Link>

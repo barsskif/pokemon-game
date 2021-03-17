@@ -1,10 +1,11 @@
 // import { useState } from 'react';
-import {useRouteMatch, Route, Switch } from "react-router-dom";
+import {useRouteMatch, Route, Switch, Redirect } from "react-router-dom";
 import GamePage from './routes/GamePage';
 import HomePage from './routes/HomePage';
-import AboutPage from './routes/AboutPage'
-import ContactPage from './routes/ContactPage'
+import AboutPage from './routes/AboutPage';
+import ContactPage from './routes/ContactPage';
 import MenuHeader from './components/MenuHeader';
+import NotFound from './routes/NotFound';
 
 import Footer from './components/Footer';
 
@@ -15,10 +16,11 @@ import React from "react";
 
 const App = () => {
 const match = useRouteMatch('/');
-console.log(match);
+
   return (
 
       <Switch>
+        <Route path='/404' component = {NotFound}/>
         <Route>
           <>
             <MenuHeader bgActive={!match.isExact}/>
@@ -31,6 +33,9 @@ console.log(match);
                 <Route path="/game" component={GamePage}/>
                 <Route path="/about" component={AboutPage}/>
                 <Route path="/contact" component={ContactPage}/>
+                <Route>
+                  <Redirect to = "/404"/>
+                </Route>
               </Switch>
             </div>
             <Footer/>

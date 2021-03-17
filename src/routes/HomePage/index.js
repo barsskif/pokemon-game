@@ -1,16 +1,12 @@
 import React from 'react';
-import style from './style.module.css'
+// import style from './style.module.css'
 import bg1 from '../../static/bg1.jpg';
 import bg2 from '../../static/bg2.jpg'
 
 import Header from '../../components/Header';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
-import PokemonCard from '../../components/PokemonCard'
-import MenuHeader from '../../components/MenuHeader'
 
-
-import PokemonItems from "../../PokemonItems.json"
 
 function HomePage({onChangePage}) {
 
@@ -19,7 +15,7 @@ function HomePage({onChangePage}) {
     }
   return (
 <>
-{/* <MenuHeader/> */}
+
 <Header 
 title='header text' 
 descr = 'header text descr'
@@ -46,18 +42,7 @@ onClickButton = {handleClickButton}
 colorBg = '#e2e2e2' 
 title='Cards' 
 >
-<div className={style.flex}>
-          {
-            PokemonItems.map((item) =>
-              <PokemonCard
-                key={item.id}
-                name={item.name}
-                id={item.id}
-                img={item.img}
-                type={item.type}
-                values={item.values} />)
-          }
-        </div>
+
 
 </Layout>
 

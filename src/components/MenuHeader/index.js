@@ -14,7 +14,7 @@ const MenuHeader = ({ bgActive }) => {
     return (
         <>
             <NavBar onButtonNavBar={handelButtonMenu} isActive={stateButtonNavBar} bgActiveN={bgActive} />
-            <Menu isActive={stateButtonNavBar} test={handelButtonMenu} />
+            <Menu isActive={stateButtonNavBar} handelButton={handelButtonMenu} />
 
         </>
     )
