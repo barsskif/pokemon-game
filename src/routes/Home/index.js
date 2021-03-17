@@ -1,28 +1,30 @@
-import { useState } from 'react';
-import GamePage from './routes/Game';
-import HomePage from './routes/Home';
+import React from 'react';
+import style from './style.module.css'
+import bg1 from '../../static/bg1.jpg';
+import bg2 from '../../static/bg2.jpg'
 
-const App = () => {
+import Header from '../../components/Header';
+import Layout from '../../components/Layout';
+import Footer from '../../components/Footer';
+import PokemonCard from '../../components/PokemonCard'
+import MenuHeader from '../../components/MenuHeader'
 
-  const [page, setPage] = useState('app')
-  const hendleChengePage = (page) => {
-    setPage(page)
-  }
 
-  const hendleChengeExitGame = (page) => {
-    setPage(page)
-  }
+import PokemonItems from "../../PokemonItems.json"
 
-  switch (page) {
-    case "app":
-      return <HomePage onChangePage={hendleChengePage} />
-    case "game":
-      return <GamePage onGemePage={hendleChengeExitGame} />
-    default:
-      return <HomePage />
+function HomePage({onChangePage}) {
 
-  }
-
+    const hendleClickButton = (page) =>{
+        onChangePage && onChangePage(page)
+    }
+  return (
+<>
+<MenuHeader/>
+<Header 
+title='header text' 
+descr = 'header text descr'
+onClickButton = {hendleClickButton}
+/>
 
 <Layout
  title="Правило игры"
@@ -44,16 +46,16 @@ const App = () => {
 colorBg = '#e2e2e2' 
 title='Cards' 
 >
-<div className="flex">
+<div className={style.flex}>
           {
-            PokemonItems.map(({id, name, img, type, values}) =>
+            PokemonItems.map((item) =>
               <PokemonCard
-                key={id}
-                name={name}
-                id={id}
-                img={img}
-                type={type}
-                values={values} />)
+                key={item.id}
+                name={item.name}
+                id={item.id}
+                img={item.img}
+                type={item.type}
+                values={item.values} />)
           }
         </div>
 
@@ -66,7 +68,6 @@ title='Cards'
 <Footer />
 </>
   );
-
 }
 
-export default App;
+export default HomePage;
