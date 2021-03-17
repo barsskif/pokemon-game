@@ -5,7 +5,7 @@ import Menu from '../Menu'
 import NavBar from '../NavBar'
 
 const MenuHeader = () => {
-    const [stateButtonNavBar, setButtonNavBar] = useState(false)
+    const [stateButtonNavBar, setButtonNavBar] = useState(null)
 
     const hendelButtonMenu = () => {
 
