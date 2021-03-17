@@ -5,7 +5,7 @@
   right: 0;
   height: calc( 100vh - 120px );
   width: calc( 100vw - 120px );
-  background: #fafafa;
+  background: rgb(0,0, 0, .5);
 }
 
 .menuContainer.active > .overlay {

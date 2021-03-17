@@ -15,10 +15,10 @@ const NavBar = ({ onButtonNavBar, active }) => {
                     <p className={style.brand}>
                         LOGO
     </p>
-                    <a className={cn(style.menuButton, { [style.active]: active })}
+                    <p className={cn(style.menuButton, { [style.active]: active })}
                         onClick={hendelClickExit}>
                         <span />
-                    </a>
+                    </p>
                 </div>
             </nav>
         </>
