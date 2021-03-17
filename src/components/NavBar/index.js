@@ -1,16 +1,21 @@
+
+
+
 import cn from 'classnames'
 
 
 import style from './style.module.css'
 
-const NavBar = ({ onButtonNavBar, isActive }) => {
+const NavBar = ({ onButtonNavBar, isActive, bgActiveN }) => {
 
     const hendelClickExit = () => {
         onButtonNavBar()
+
     }
+
     return (
         <>
-            <nav className={style.navbar}>
+            <nav className={cn(style.navbar, { [style.bgActive]: bgActiveN })}>
                 <div className={style.navWrapper}>
                     <p className={style.brand}>
                         LOGO

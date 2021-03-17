@@ -7,14 +7,14 @@ import style from './PokemonCard.module.css'
 const PokemonCard = ({ name, img, id, type, values }) => {
     const [isActive, setActive] = useState(false)
 
-    const hendelClick = () => {
+    const handelClick = () => {
         setActive(!isActive)
     }
 
     return (
 
         <>
-            <div className={style.root} onClick={hendelClick}>
+            <div className={style.root} onClick={handelClick}>
                 <div className={cn(style.pokemonCard, { [style.active]: isActive })}>
                     <div className={style.cardFront}>
                         <div className={cn(style.wrap, style.front)}>

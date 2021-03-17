@@ -1,24 +1,27 @@
+
+import React from "react";
 import style from './style.module.css'
+
 
 
 const GamePage = ({ onGemePage }) => {
 
-    const hendleClickButtoinExit = () => {
+    const handleClickButtonExit = () => {
         onGemePage && onGemePage('app')
-    }
+    };
 
 
     return (
         <>
-            <div>
-                <p  >GamePage</p>
-                <button className={style.test} onClick={hendleClickButtoinExit}>
+
+                <p>GamePage</p>
+                <button className={style.test} onClick={handleClickButtonExit}>
                     Exit
         </button>
-            </div>
+          
         </>
     )
-}
+};
 
 
 export default GamePage;

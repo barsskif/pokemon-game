@@ -1,24 +1,24 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 
 import Menu from '../Menu'
 import NavBar from '../NavBar'
 
-const MenuHeader = () => {
-    const [stateButtonNavBar, setButtonNavBar] = useState(null)
+const MenuHeader = ({ bgActive }) => {
+    const [stateButtonNavBar, setButtonNavBar] = useState(null);
 
-    const hendelButtonMenu = () => {
-
+    const handelButtonMenu = () => {
         setButtonNavBar(stateButtonNavBar => !stateButtonNavBar)
-    }
+    };
+
     return (
         <>
-            <NavBar onButtonNavBar={hendelButtonMenu} isActive={stateButtonNavBar} />
-            <Menu isActive={stateButtonNavBar} />
+            <NavBar onButtonNavBar={handelButtonMenu} isActive={stateButtonNavBar} bgActiveN={bgActive} />
+            <Menu isActive={stateButtonNavBar} test={handelButtonMenu} />
 
         </>
     )
-}
+};
 
 
 export default MenuHeader;

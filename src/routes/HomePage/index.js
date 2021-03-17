@@ -14,16 +14,16 @@ import PokemonItems from "../../PokemonItems.json"
 
 function HomePage({onChangePage}) {
 
-    const hendleClickButton = (page) =>{
+    const handleClickButton = (page) =>{
         onChangePage && onChangePage(page)
     }
   return (
 <>
-<MenuHeader/>
+{/* <MenuHeader/> */}
 <Header 
 title='header text' 
 descr = 'header text descr'
-onClickButton = {hendleClickButton}
+onClickButton = {handleClickButton}
 />
 
 <Layout
