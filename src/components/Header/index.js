@@ -16,6 +16,8 @@ const Header = ({onClickButton}) =>{
     return (
         <header className={styles.root}>
         <div className={styles.forest}></div>
+            <div className={styles.silhouette }></div>
+            <div className={styles.moon}></div>
         <div className={styles.container}>
             <h1>This is title</h1>
             <p>This is Description!</p>
