@@ -1,0 +1,4 @@
+.wrap{
+    height: calc(100vh - 200px);
+    text-align: center;
+}

@@ -10,9 +10,9 @@ const Header = () =>{
 const history = useHistory();
 
     const handleClick = () =>{
-        history.push('/game')
+        history.push('/game');
         new Audio(alarm).play(); 
-    }
+    };
 
     
     return (
@@ -33,6 +33,6 @@ const history = useHistory();
         </div>
     </header>
     );
-}
+};
 
 export default Header;

@@ -16,7 +16,7 @@
     width: 100%;
     min-height: 100vh;
     z-index: -1;
-		animation: stars-move-in 1000ms 300ms forwards;
+    animation: stars-move-in 1000ms 300ms forwards;
     opacity: 0;
 }
 
@@ -63,6 +63,7 @@
     opacity: 0;
     animation: silhouette-move-in 1000ms 800ms forwards;
 }
+
 @keyframes silhouette-move-in {
     from {
         background-position-x: 0;
@@ -110,7 +111,7 @@
     animation: text-fade-in 1000ms 800ms forwards;
 }
 
-.btn{  
+.btn {
     height: 50px;
     padding-top: 5px;
     margin-top: 20px;
@@ -121,7 +122,8 @@
     border-radius: 3px;
     justify-content: center;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: rgb(128, 122, 118);
 }
 

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
 
 import Menu from '../Menu'
 import NavBar from '../NavBar'
 
-const MenuHeader = ({ bgActive }) => {
+const MenuHeader = ({bgActive}) => {
     const [stateButtonNavBar, setButtonNavBar] = useState(null);
 
     const handelButtonMenu = () => {
@@ -13,8 +13,8 @@ const MenuHeader = ({ bgActive }) => {
 
     return (
         <>
-            <NavBar onButtonNavBar={handelButtonMenu} isActive={stateButtonNavBar} bgActiveN={bgActive} />
-            <Menu isActive={stateButtonNavBar} handelButton={handelButtonMenu} />
+            <NavBar onButtonNavBar={handelButtonMenu} isActive={stateButtonNavBar} bgActiveN={bgActive}/>
+            <Menu isActive={stateButtonNavBar} handelButton={handelButtonMenu}/>
 
         </>
     )
