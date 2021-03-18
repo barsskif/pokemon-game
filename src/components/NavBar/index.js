@@ -8,7 +8,7 @@ import style from './style.module.css'
 
 const NavBar = ({ onButtonNavBar, isActive, bgActiveN }) => {
 
-    const hendelClickExit = () => {
+    const handleClickExit = () => {
         onButtonNavBar()
 
     }
@@ -21,7 +21,7 @@ const NavBar = ({ onButtonNavBar, isActive, bgActiveN }) => {
                         LOGO
     </p>
                     <p className={cn(style.menuButton, { [style.active]: isActive })}
-                        onClick={hendelClickExit}>
+                        onClick={handleClickExit}>
                         <span />
                     </p>
                 </div>

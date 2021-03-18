@@ -7,14 +7,15 @@ import NavBar from '../NavBar'
 const MenuHeader = ({ bgActive }) => {
     const [stateButtonNavBar, setButtonNavBar] = useState(null);
 
-    const handelButtonMenu = () => {
+    const handleButtonMenu = () => {
         setButtonNavBar(stateButtonNavBar => !stateButtonNavBar)
+        // setButtonNavBar(null)
     };
 
     return (
         <>
-            <NavBar onButtonNavBar={handelButtonMenu} isActive={stateButtonNavBar} bgActiveN={bgActive} />
-            <Menu isActive={stateButtonNavBar} handelButton={handelButtonMenu} />
+            <NavBar onButtonNavBar={handleButtonMenu} isActive={stateButtonNavBar} bgActiveN={bgActive} />
+            <Menu isActive={stateButtonNavBar} handleButton={handleButtonMenu} />
 
         </>
     )
