@@ -23,7 +23,7 @@ const MENU = [
     title: "CONTACT",
     to: "/contact"
   },
-]
+];
 
 
 const Menu = ({ isActive, handelButton }) => {

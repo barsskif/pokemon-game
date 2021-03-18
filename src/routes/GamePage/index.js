@@ -7,22 +7,27 @@ import PokemonCard from "../../components/PokemonCard";
 
 
 const GamePage = () => {
-    const [arr, setArr] = useState(PokemonItems)
+    const [arr, setArr] = useState(PokemonItems);
     const history = useHistory();
 
     const handleClickButtonExit = () => {
         history.push('/')
-    }
+    };
 
     const handleClickActiveCard = (id) => {
-        const newArr = [...arr]
-        arr.forEach(i => {
-            if (i.id === id) {
-                i.active = true;
-            }
-        })
-        setArr(newArr);
-
+        // const newArr = [...arr];
+        // arr.forEach(i => {
+        //     if (i.id === id) {
+        //         i.active = true;
+        //     }
+        // });
+        // setArr(newArr);
+setArr(arr => arr.filter(i => {
+    if(i.id === id){
+        i.active =true;
+    }
+    return true;
+}))
     };
 
 
