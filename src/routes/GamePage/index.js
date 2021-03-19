@@ -65,7 +65,7 @@ const GamePage = () => {
         // });
 // console.log(arr[`${key}`])
         database.ref('pokemons/'+ key).update(
-            {active: !arr[`${key}`].active }
+            {active: !arr[key].active }
         )
 
     };
