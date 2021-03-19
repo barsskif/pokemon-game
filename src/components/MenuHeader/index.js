@@ -1,24 +1,27 @@
-import { useState } from 'react'
+import React, {useState} from 'react'
 
 
-import Menu from '../Menu'
+import Menu from '../NavBar/Menu'
 import NavBar from '../NavBar'
 
-const MenuHeader = () => {
-    const [stateButtonNavBar, setButtonNavBar] = useState(null)
+const MenuHeader = ({bgActive}) => {
+    const [stateButtonNavBar, setButtonNavBar] = useState(null);
 
-    const hendelButtonMenu = () => {
-
+    const handleButtonMenu = () => {
         setButtonNavBar(stateButtonNavBar => !stateButtonNavBar)
-    }
+        // setButtonNavBar(null)
+    };
+
     return (
         <>
-            <NavBar onButtonNavBar={hendelButtonMenu} isActive={stateButtonNavBar} />
-            <Menu isActive={stateButtonNavBar} />
+
+            <NavBar onButtonNavBar={handleButtonMenu} isActive={stateButtonNavBar} bgActiveN={bgActive}/>
+            <Menu isActive={stateButtonNavBar} handleButton={handleButtonMenu}/>
+
 
         </>
     )
-}
+};
 
 
 export default MenuHeader;
