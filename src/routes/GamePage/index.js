@@ -9,10 +9,9 @@ const GamePage = () => {
     const [arr, setArr] = useState({});
     const history = useHistory();
 
-    useEffect(()=>{
-        database.ref('pokemons').on('value',(snapshot)=>{
+    useEffect(() => {
+        database.ref('pokemons').on('value', (snapshot) => {
             setArr(snapshot.val());
-            // console.log(snapshot.child('pokemons').val())
         })
     }, [])
 
@@ -20,8 +19,9 @@ const GamePage = () => {
         console.log('test')
         const newKey = database.ref().child('pokemons').push().key;
         console.log(newKey)
-        database.ref('pokemons/'+ newKey).update(
-            {"abilities": [
+        database.ref('pokemons/' + newKey).update(
+            {
+                "abilities": [
                     "keen-eye",
                     "tangled-feet",
                     "big-pecks"
@@ -47,11 +47,11 @@ const GamePage = () => {
                     "bottom": 1,
                     "left": 2
                 }
-             }
+            }
         )
     };
 
-    const handleClickActiveCard = ( key) => {
+    const handleClickActiveCard = (key) => {
         // setArr(prevState => {
         //     return Object.entries(prevState).reduce((act, item) => {
         //         const pokemon = {...item[1]};
@@ -64,12 +64,11 @@ const GamePage = () => {
         //     }, {});
         // });
 // console.log(arr[`${key}`])
-        database.ref('pokemons/'+ key).update(
-            {active: !arr[key].active }
+        database.ref('pokemons/' + key).update(
+            {active: !arr[key].active}
         )
 
     };
-
 
 
 
@@ -90,7 +89,7 @@ const GamePage = () => {
 
             <div className={style.flex}>
                 {
-                    Object.entries(arr).map(( [key,{id, name, img, type, values, active}]) =>
+                    Object.entries(arr).map(([key, {id, name, img, type, values, active}]) =>
                         <PokemonCard
                             key={key}
                             name={name}
