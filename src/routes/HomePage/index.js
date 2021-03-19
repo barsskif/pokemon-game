@@ -5,7 +5,6 @@ import bg2 from '../../static/bg2.jpg'
 
 import Header from '../../components/Header';
 import Layout from '../../components/Layout';
-// import Footer from '../../components/Footer';
 
 
 function HomePage({onChangePage}) {
@@ -51,6 +50,7 @@ function HomePage({onChangePage}) {
             <Layout
                 title=' Layout header text'
                 urlBg={bg2}/>
+            a
         </>
     );
 }

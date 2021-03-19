@@ -8,7 +8,7 @@ const NotFound = () => {
     return (
         <div className={style.wrap}>
             <h1>404 NotFound</h1>
-            <img src = {Pikahu} alt='Pikahu' />
+            <img src={Pikahu} alt='Pikahu'/>
         </div>
 
     );

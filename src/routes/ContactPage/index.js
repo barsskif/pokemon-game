@@ -1,9 +1,12 @@
-import React from "react";
 
+import s from './style.module.css'
 
 const ContactPage = () => {
     return (
-        <h1>ContactPage</h1>
+        <section className={s.wrap}>
+            <h1>ContactPage</h1>
+        </section>
+
     );
 };
 

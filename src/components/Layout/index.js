@@ -3,7 +3,7 @@ import cn from 'classnames'
 import styles from './Layout.module.css'
 
 
-const Layout = ({ title, urlBg, colorBg, position, children }) => {
+const Layout = ({title, urlBg, colorBg, position, children}) => {
 
     const myBacgroundImg = {
         backgroundImage: `url(${urlBg})`,
@@ -12,20 +12,23 @@ const Layout = ({ title, urlBg, colorBg, position, children }) => {
         backgroundPositionY: position ? position : null
     }
 
-    const mybackgroundColor = {
+    const myBackgroundColor = {
         backgroundColor: colorBg
     }
 
     return (
         <>
-            <section className={styles.root} >
-                <div className={styles.wrapper} style={urlBg ? myBacgroundImg : mybackgroundColor}>
+            <section className={styles.root}>
+                <div className={styles.wrapper} style={urlBg ? myBacgroundImg : myBackgroundColor}>
                     <article>
                         <div className={styles.title}>
                             <h3>{title}</h3>
                             <span className={styles.separator}></span>
                         </div>
+
                         <div className={cn(styles.desc, styles.full)}>
+
+
                             <div>{children}</div>
                         </div>
                     </article>
