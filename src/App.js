@@ -6,13 +6,16 @@ import AboutPage from './routes/AboutPage';
 import ContactPage from './routes/ContactPage';
 import MenuHeader from './components/MenuHeader';
 import NotFound from './routes/NotFound';
-
 import Footer from './components/Footer';
+
 
 import cn from 'classnames'
 
 import s from './routes/style.module.css'
-import React from "react";
+
+
+
+
 
 const App = () => {
     const match = useRouteMatch('/');
