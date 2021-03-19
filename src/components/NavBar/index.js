@@ -6,7 +6,9 @@ import React from "react";
 
 const NavBar = ({onButtonNavBar, isActive, bgActiveN}) => {
 
-    const handelClickExit = () => {
+
+    const handleClickExit = () => {
+
         onButtonNavBar()
 
     };
@@ -17,9 +19,10 @@ const NavBar = ({onButtonNavBar, isActive, bgActiveN}) => {
                 <div className={style.navWrapper}>
                     <p className={style.brand}>
                         LOGO
+
                     </p>
                     <p className={cn(style.menuButton, {[style.active]: isActive})}
-                       onClick={handelClickExit}>
+                       onClick={handleClickExit}>
                         <span/>
                     </p>
                 </div>

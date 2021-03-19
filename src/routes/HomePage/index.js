@@ -50,7 +50,7 @@ function HomePage({onChangePage}) {
             <Layout
                 title=' Layout header text'
                 urlBg={bg2}/>
-
+            a
         </>
     );
 }

@@ -1,29 +1,24 @@
 @import 'https://fonts.googleapis.com/css?family=Overlock:400,400i,700|Oleo+Script';
 
 
-.btn{
-   width: 20%;
-   height: 40px;
-   border: 1px solid deeppink;
-  border-radius: 3px;
-   background: none;
-
- }
-
-.btn:hover{
-  background: deeppink;
-  cursor: pointer;
+.btn {
+    width: 20%;
+    height: 40px;
+    background: none;
+    border: 1px solid cadetblue;
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 40%;
 }
-.btn_div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.btn:hover {
+    background: cadetblue;
 }
 
 
 .flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }

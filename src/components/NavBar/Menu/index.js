@@ -26,16 +26,22 @@ const MENU = [
 ];
 
 
-const Menu = ({isActive, handelButton}) => {
+const Menu = ({isActive, handleButton}) => {
 
     return (
-        <div className={cn(style.menuContainer, {[style.active]: isActive, [style.deactive]: !isActive})}>
+        <div className={cn(style.menuContainer, {
+            [style.active]: isActive,
+            [style.deactive]: isActive === null ? false : true
+        })}>
+
             <div className={style.overlay}/>
             <div className={style.menuItems}>
                 <ul>
 
                     {MENU.map(({title, to}, index) => (
-                        <li key={index} onClick={() => handelButton()}>
+
+                        <li key={index} onClick={() => handleButton()}>
+
                             <Link to={to}>
                                 {title}
                             </Link>

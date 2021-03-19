@@ -32,13 +32,18 @@ const GamePage = () => {
 
     return (
         <>
-            <h1>GamePage</h1>
-            <div className={style.btn_div}>
+
+
+            <div>
+                <div className={style.flex}>
+                    <h1>GamePage</h1>
+                </div>
+
                 <button className={style.btn} onClick={handleClickButtonExit}>
                     Exit
                 </button>
-
             </div>
+
 
             <div className={style.flex}>
                 {
