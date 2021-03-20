@@ -1,28 +1,20 @@
-import React, {useState, useEffect} from "react";
-import {useHistory} from 'react-router-dom'
+import {useState, useEffect} from "react";
 import style from './style.module.css'
-import PokemonItems from '../../PokemonItems.json'
 import PokemonCard from "../../components/PokemonCard";
 import database from "../../service/firebase";
 
 const GamePage = () => {
-    const [arr, setArr] = useState(null);
-    const history = useHistory();
+    const [arrPokemon, setArr] = useState(null);
 
     useEffect(() => {
-        console.log(arr)
         database.ref('pokemons').on('value', (snapshot) => {
             setArr(snapshot.val());
-            console.log(arr)
         })
-
     }, [])
 
     const handleClickButtonAddNewCard = () => {
-        console.log('test')
         const newKey = database.ref().child('pokemons').push().key;
-        console.log(newKey)
-        database.ref('pokemons/' + newKey).update(
+        database.ref('pokemons/' + newKey).set(
             {
                 "abilities": [
                     "keen-eye",
@@ -66,16 +58,15 @@ const GamePage = () => {
         //         return act;
         //     }, {});
         // });
-// console.log(arr[`${key}`])
         database.ref('pokemons/' + key).update(
-            {active: !arr[key].active}
+            {active: !arrPokemon[key].active}
         )
 
     };
 
-if (arr === null){
-    return  <h1>Загрузка....</h1>
-}
+    if (arrPokemon === null) {
+        return <h1>Загрузка....</h1>
+    }
 
     return (
         <>
@@ -94,7 +85,7 @@ if (arr === null){
 
             <div className={style.flex}>
                 {
-                    Object.entries(arr).map(([key, {id, name, img, type, values, active}]) =>
+                    Object.entries(arrPokemon).map(([key, {id, name, img, type, values, active}]) =>
                         <PokemonCard
                             key={key}
                             name={name}

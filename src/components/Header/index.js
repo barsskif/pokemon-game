@@ -11,7 +11,7 @@ const Header = () => {
 
     const handleClick = () => {
         history.push('/game');
-        new Audio(alarm).play();
+        // new Audio(alarm).play();
     };
 
 

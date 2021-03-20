@@ -30,8 +30,8 @@ const Menu = ({isActive, handleButton}) => {
 
     return (
         <div className={cn(style.menuContainer, {
-            [style.active]: isActive === true,
-            [style.deactive]: isActive === false
+            [style.active]: isActive ,
+            [style.deactive]: !isActive
         })}>
 
             <div className={style.overlay}/>

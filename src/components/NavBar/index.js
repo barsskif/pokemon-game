@@ -14,7 +14,7 @@ const NavBar = ({onButtonNavBar, isActive, bgActiveN}) => {
 
     return (
         <>
-            <nav className={cn(style.navbar, {[style.bgActive]: bgActiveN===true})}>
+            <nav className={cn(style.navbar, {[style.bgActive]: bgActiveN})}>
                 <div className={style.navWrapper}>
                     <p className={style.brand}>
                         LOGO
