@@ -6,13 +6,16 @@ import PokemonCard from "../../components/PokemonCard";
 import database from "../../service/firebase";
 
 const GamePage = () => {
-    const [arr, setArr] = useState({});
+    const [arr, setArr] = useState(null);
     const history = useHistory();
 
     useEffect(() => {
+        console.log(arr)
         database.ref('pokemons').on('value', (snapshot) => {
             setArr(snapshot.val());
+            console.log(arr)
         })
+
     }, [])
 
     const handleClickButtonAddNewCard = () => {
@@ -70,7 +73,9 @@ const GamePage = () => {
 
     };
 
-
+if (arr === null){
+    return  <h1>Загрузка....</h1>
+}
 
     return (
         <>
