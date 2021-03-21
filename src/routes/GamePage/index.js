@@ -5,11 +5,12 @@ import database from "../../service/firebase";
 
 const GamePage = () => {
     const [arrPokemon, setArr] = useState(null);
+    const data = () =>  database.ref('pokemons').once('value', (snapshot)=>{
+        setArr(snapshot.val())
+    });
 
     useEffect(() => {
-        database.ref('pokemons').on('value', (snapshot) => {
-            setArr(snapshot.val());
-        })
+        data()
     }, [])
 
     const handleClickButtonAddNewCard = () => {
@@ -43,6 +44,8 @@ const GamePage = () => {
                     "left": 2
                 }
             }
+        ).then(
+            data()
         )
     };
 
@@ -60,7 +63,7 @@ const GamePage = () => {
         // });
         database.ref('pokemons/' + key).update(
             {active: !arrPokemon[key].active}
-        )
+        ).then(data())
 
     };
 
