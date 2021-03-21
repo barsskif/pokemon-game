@@ -9,9 +9,9 @@ const GamePage = () => {
         setArr(snapshot.val())
     });
 
-    useEffect(() => {
-        data()
-    }, [])
+    useEffect(  async () => {
+        await data()
+    }, [arrPokemon])
 
     const handleClickButtonAddNewCard = () => {
         const newKey = database.ref().child('pokemons').push().key;
@@ -44,8 +44,6 @@ const GamePage = () => {
                     "left": 2
                 }
             }
-        ).then(
-            data()
         )
     };
 
@@ -61,9 +59,9 @@ const GamePage = () => {
         //         return act;
         //     }, {});
         // });
-        database.ref('pokemons/' + key).update(
+         database.ref('pokemons/' + key).update(
             {active: !arrPokemon[key].active}
-        ).then(data())
+        )
 
     };
 
