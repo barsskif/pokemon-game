@@ -4,8 +4,9 @@ import cn from 'classnames'
 
 import style from './PokemonCard.module.css'
 
-const PokemonCard = ({name, img, id, type, values, test, isAct}) => {
 
+
+const PokemonCard = ({name, img, id, type, values, test, isAct}) => {
 
     const handelClick = () => {
         test(id)

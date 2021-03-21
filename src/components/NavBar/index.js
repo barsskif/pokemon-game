@@ -10,7 +10,6 @@ const NavBar = ({onButtonNavBar, isActive, bgActiveN}) => {
     const handleClickExit = () => {
 
         onButtonNavBar()
-
     };
 
     return (

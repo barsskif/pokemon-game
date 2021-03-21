@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-import Menu from '../NavBar/Menu'
+import Menu from '../Menu'
 import NavBar from '../NavBar'
 
 const MenuHeader = ({bgActive}) => {
@@ -10,6 +10,8 @@ const MenuHeader = ({bgActive}) => {
     const handleButtonMenu = () => {
         setButtonNavBar(stateButtonNavBar => !stateButtonNavBar)
         // setButtonNavBar(null)
+
+
     };
 
     return (
