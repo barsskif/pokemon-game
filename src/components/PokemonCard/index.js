@@ -5,7 +5,7 @@ import cn from 'classnames'
 import style from './PokemonCard.module.css'
 
 
-const PokemonCard = ({name, img, id, type, values, test, isAct, className, minimize}) => {
+const PokemonCard = ({name, img, id, type, values, test, isAct, className, minimize, isSelected}) => {
 
     const handelClick = () => {
         test && test(id)
@@ -14,8 +14,12 @@ const PokemonCard = ({name, img, id, type, values, test, isAct, className, minim
     return (
 
         <>
-            <div className={cn({[style.root]: true}, className)} onClick={({id}) => handelClick(id)}>
-                <div className={cn(style.pokemonCard, {[style.active]: isAct}, minimize)}>
+            {/*<div className={cn({[style.root]: true}, className)} onClick={({id}) => handelClick(id)}>*/}
+                <div className={cn(style.pokemonCard, className,
+                    {[style.active]: isAct,
+                        [style.selected]: isSelected,
+                    })}
+                     onClick={({id}) => handelClick(id)}>
                     <div className={style.cardFront} style={{marginTop: "-40px"}}>
                         <div className={cn(style.wrap, style.front)}>
                             <div className={cn(style.pokemon, style[type])}>
@@ -44,7 +48,7 @@ const PokemonCard = ({name, img, id, type, values, test, isAct, className, minim
                     </div>
 
                 </div>
-            </div>
+            {/*</div>*/}
         </>
     )
 };

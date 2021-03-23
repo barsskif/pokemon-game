@@ -16,8 +16,8 @@ function HomePage({onChangePage}) {
         <>
 
             <Header
-                title='header text'
-                descr='header text descr'
+                title='Pokemon Game'
+                descr='Ну что начнем'
                 onClickButton={handleClickButton}
             />
 
@@ -39,18 +39,18 @@ function HomePage({onChangePage}) {
                 </div>
             </Layout>
 
-            <Layout
-                colorBg='#e2e2e2'
-                title='Cards'
-            >
+            {/*<Layout*/}
+            {/*    colorBg='#e2e2e2'*/}
+            {/*    title='Cards'*/}
+            {/*>*/}
 
 
-            </Layout>
+            {/*</Layout>*/}
 
-            <Layout
-                title=' Layout header text'
-                urlBg={bg2}/>
-            a
+            {/*<Layout*/}
+            {/*    title=' Layout header text'*/}
+            {/*    urlBg={bg2}/>*/}
+
         </>
     );
 }

@@ -6,9 +6,9 @@ import FinishPage from "../Game/routes/FinishPage";
 import {PokemonContext} from "../../context/PokemonContext";
 
 const GamePage = () => {
-    const [pokemons, setPokemons] = useState([])
-
+    const [pokemons, setPokemons] = useState({})
     const match = useRouteMatch();
+
 
     return (
         <>

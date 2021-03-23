@@ -20,8 +20,14 @@ firebase.initializeApp({
 
      getPokemonSoket = (cb) =>{
          this.database.ref('pokemons').on('value', (snapshot)=>{
-            cb(snapshot.val())
-        })
+             cb(snapshot.val())
+         })
+
+     }
+
+     offPokemonSoket = () =>{
+         this.database.ref('pokemons').off()
+
      }
 
      postPokemon = (key, arrPokemon, cb )=>{

@@ -1,9 +1,11 @@
-import style from "../../../GamePage/style.module.css";
+// import style from "../../../GamePage/style.module.css";
 import {useState, useEffect, useContext} from "react";
 import PokemonCard from "../../../../components/PokemonCard";
 import {FireBaseContext} from "../../../../context/FirebaseContext";
 import {PokemonContext} from "../../../../context/PokemonContext";
 import {useHistory} from "react-router-dom";
+
+import style from './style.module.css';
 
 const StartPage = () => {
     const [arrPokemon, setArr] = useState(null);
@@ -14,15 +16,36 @@ const StartPage = () => {
     useEffect(() => {
         firebase.getPokemonSoket((pokemons) => {
             setArr(prev => pokemons)
-        })
+        });
+        return () => firebase.offPokemonSoket()
     }, []);
 
     const handleClickButtonStartGame = () => {
         history.push('/game/board')
     };
 
-    const handleClickActiveCard = (key,) => {
-        return setPokemons([...pokemons, {...arrPokemon[key]}]);
+    const handleClickSelect = (key,) => {
+        setPokemons(prevState => {
+            if (prevState[key]){
+                const copyState ={...prevState};
+                delete copyState[key]
+
+                return copyState
+            }
+
+            return {
+                ...prevState,
+                [key]: arrPokemon[key]
+            }
+        })
+        setArr(prevState => ({
+            ...prevState,
+            [key]:{
+                ...prevState[key],
+                selected: !prevState[key].selected
+            }
+        }))
+
 
     };
 
@@ -36,7 +59,10 @@ const StartPage = () => {
                     <h1>GamePage</h1>
                 </div>
 
-                <button className={style.btn} onClick={handleClickButtonStartGame}>
+                <button className={style.btn}
+                        onClick={handleClickButtonStartGame}
+                disabled={Object.keys(pokemons).length < 5}
+                >
                     Start Game
                 </button>
             </div>
@@ -44,16 +70,23 @@ const StartPage = () => {
 
             <div className={style.flex}>
                 {
-                    Object.entries(arrPokemon).map(([key, {id, name, img, type, values, active = true}]) =>
+                    Object.entries(arrPokemon).map(([key, {id, name, img, type, values, selected}]) =>
                         <PokemonCard
+                            className={style.card}
                             key={key}
                             name={name}
                             id={id}
                             img={img}
                             type={type}
                             values={values}
-                            test={() => handleClickActiveCard(key, id)}
-                            isAct={active}
+                            isSelected={selected}
+                            test={() => {
+                                if (Object.keys(pokemons).length < 5 || selected){
+                                    handleClickSelect(key)
+                                }
+
+                            }}
+                            isAct={true}
 
 
                         />)
