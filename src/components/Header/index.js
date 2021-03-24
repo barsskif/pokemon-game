@@ -6,7 +6,7 @@ import alarm from "../../static/alar.mp3";
 import styles from './Header.module.css'
 
 
-const Header = () => {
+const Header = ({title, descr}) => {
     const history = useHistory();
 
     const handleClick = () => {
@@ -21,8 +21,8 @@ const Header = () => {
             <div className={styles.silhouette}></div>
             <div className={styles.moon}></div>
             <div className={styles.container}>
-                <h1>This is title</h1>
-                <p>This is Description!</p>
+                <h1>{title}</h1>
+                <p style={{textAlign: 'center'}}>{descr}</p>
                 <div className={styles.btn}>
                     <p onClick={handleClick}>
                         Start Game
