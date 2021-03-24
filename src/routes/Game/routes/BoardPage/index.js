@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom';
 
 import s from './style.module.css'
 import PlayerBoard from "./component/PlayerBoard";
+import FinishPage from "../FinishPage";
 
 const countWin = (board, player1, player2) => {
 let player1Count = player1.length;
@@ -25,6 +26,7 @@ const BoardPage = () => {
     const {pokemons} = useContext(PokemonContext)
     const [board, setBoard] = useState([])
     const [player2, setPlayer2] = useState([])
+    const[gfgf, setGfgf] = useState([])
     const [player1, setPlayer1] = useState(()=>{
         return Object.values(pokemons).map(item=>({
             ...item,
@@ -33,9 +35,10 @@ const BoardPage = () => {
     })
     const [choiceCard, setChoiceCard] = useState(null)
     const [steps, setSteps] = useState(0)
+    const [youWin, setYouWin] = useState(false)
     const history = useHistory();
 
-// console.log('### board', board)
+console.log('### board', board)
     console.log('### player2',player2)
     useEffect(async ()=>{
         const boardResponse = await fetch('https://reactmarathon-api.netlify.app/api/board');
@@ -54,11 +57,18 @@ const BoardPage = () => {
             }))
         })
 
+        setGfgf(()=> {
+            return player2Request.data.map(item => ({
+                ...item,
+                possession: 'red',
+            }))
+        })
+
     }, []);
 
-    // if (Object.keys(pokemons).length === 0){
-    //     history.replace('/game');
-    // }
+    if (Object.keys(pokemons).length === 0){
+        history.replace('/game');
+    }
 
     const handleClickBoardPlate = async (position) => {
         console.log("###: position", position)
@@ -105,48 +115,57 @@ const [count1, count2] = countWin(board, player1, player2)
 
     if (count1 > count2){
         alert('YOU WIN')
+        setYouWin(true)
     }else if (count1 < count2){
         alert('No No No')
+        setYouWin(true)
     }else{
         alert('DRAW')
     }
 }
     },[steps])
 
+    if (youWin){
+        return <FinishPage pok={gfgf} ts={youWin}/>
+    }
+
     return (
-        <div className={s.root}>
-            <div className={s.playerOne}>
-                <PlayerBoard
-                    player={1}
-                    cards={player1}
-                onClickCard={(cards) => setChoiceCard(cards)}
-                />
-            </div>
-            <div className={s.board}>
+        <>
+            <div className={s.root}>
+                <div className={s.playerOne}>
+                    <PlayerBoard
+                        player={1}
+                        cards={player1}
+                        onClickCard={(cards) => setChoiceCard(cards)}
+                    />
+                </div>
+                <div className={s.board}>
 
-                {
-                    board.map((item)=>(
-                        <div
-                            key = {item.position}
-                            className={s.boardPlate}
-                            onClick={()=>{!item.card && handleClickBoardPlate(item.position)}}
-                        >
-                            {
-                                item.card && <PokemonCard {...item.card} isAct minimize/>
-                            }
-                        </div>
-                    ))
-                }
-            </div>
-            <div className={s.playerTwo}>
-                <PlayerBoard
-                    player={2}
-                    cards={player2}
-                    onClickCard={(card) => setChoiceCard(card)}
-                />
+                    {
+                        board.map((item)=>(
+                            <div
+                                key = {item.position}
+                                className={s.boardPlate}
+                                onClick={()=>{!item.card && handleClickBoardPlate(item.position)}}
+                            >
+                                {
+                                    item.card && <PokemonCard {...item.card} isAct minimize/>
+                                }
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className={s.playerTwo}>
+                    <PlayerBoard
+                        player={2}
+                        cards={player2}
+                        onClickCard={(card) => setChoiceCard(card)}
+                    />
+                </div>
+
             </div>
 
-        </div>
+        </>
     );
 };
 
