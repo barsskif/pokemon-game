@@ -2,51 +2,48 @@ import {useContext, useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import {PokemonContext} from "../../../../context/PokemonContext";
 import {FireBaseContext} from "../../../../context/FirebaseContext";
-import PlayerBoard from "../BoardPage/component/PlayerBoard";
 import PokemonCard from "../../../../components/PokemonCard";
+import cn from 'classnames'
 import style from "../StartPage/style.module.css";
+import s from "../BoardPage/component/PlayerBoard/style.module.css";
 
 
 
-const FinishPage = ({pok, ts}) =>{
+const FinishPage = () =>{
     const fire = useContext(FireBaseContext)
-    const {pokemons} = useContext(PokemonContext)
-    const [st, setState] = useState({})
-    const [sel, setSel] = useState(true)
+    const {pokemons, pokemonsPlayer2} = useContext(PokemonContext)
+    const [statePokemon, setState] = useState({})
+    const [isSelected, setSelected] = useState(null)
     const history = useHistory()
 
-    console.log('pokemonContext', pokemons)
-    console.log('fire', fire)
-    console.log('pok', pok)
-    // console.log("add", Object.keys(st).length)
 
 const test =(id, i)=>{
-    console.log("test", id)
-    console.log("test", i)
-    const ci = {
+
+    const pokemonPlayer2Card = {
         ...i
     }
 
-    // fire.addPokemon(i)
-    setState(ci)
-    console.log("add", ci)
+    setState(pokemonPlayer2Card)
 
 }
+console.log(statePokemon)
 
-const butn =()=>{
-    fire.addPokemon(st);
+const handleClickButtonEndGame =()=>{
+    fire.addPokemon(statePokemon);
     history.replace('/game')
 }
-    // console.log('ci', st)
-    console.log("st", Object.keys(st).length)
 
-    if (ts === false) {
-        history.replace('/game/board');
+
+    if (Object.keys(pokemonsPlayer2).length === 0){
+        history.replace('/game');
     }
 
 
+
     return (
-        <>
+
+
+        <div className={style.wrap}>
             <h1>FinishPage</h1>
             <div className={style.flex}>
                 {Object.values(pokemons).map((i)=>
@@ -58,29 +55,29 @@ const butn =()=>{
                         img={i.img}
                         type={i.type}
                         values={i.values}
-                        isSelected={i.selected}
                         isAct={true}
 
                     />
                 )}
             </div>
-            <button style={{width: '30%',height:"30px", marginTop:"20px",
-                marginBottom:"20px",
-               position:"relative",
-                left:"50%",
-                transform:"translate(-50%,0)"
-            }}
-            onClick={()=> butn()}
+            <button className={style.btn}
+            onClick={()=> handleClickButtonEndGame ()}
+                    disabled={Object.keys(statePokemon).length < 1 }
             >Забрать карту</button>
             <div className={style.flex}  >
 
 
-            {pok.map((i) =>
-                <div onClick={() => test(i.id, i)}>
+            {Object.values(pokemonsPlayer2.data).map((i) =>
+                <div onClick={() => {
+                    test(i.id, i)
+                    setSelected(i.id);
+                    console.log(isSelected)
+                }}>
                 <PokemonCard
-                className={style.card}
+                className={cn(style.card, {
+                    [style.selected]: isSelected === i.id
+                })}
                 key={i.id}
-                select ={sel}
                 name={i.name}
                 id={i.id}
                 img={i.img}
@@ -93,7 +90,7 @@ const butn =()=>{
                 </div>
                 )}
             </div>
-    </>
+    </div>
 
     );
 }

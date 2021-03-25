@@ -7,12 +7,13 @@ import {PokemonContext} from "../../context/PokemonContext";
 
 const GamePage = () => {
     const [pokemons, setPokemons] = useState({})
+    const [pokemonsPlayer2, setPokemonsPlayer2] = useState({})
     const match = useRouteMatch();
 
 
     return (
         <>
-            <PokemonContext.Provider value={{pokemons, setPokemons}}>
+            <PokemonContext.Provider value={{pokemons, setPokemons, pokemonsPlayer2, setPokemonsPlayer2}}>
                 <Switch>
                     <Route path={`${match.path}/`} exact component={StartPage}/>
                     <Route path={`${match.path}/board`} component={BoardPage}/>
