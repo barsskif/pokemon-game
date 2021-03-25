@@ -56,9 +56,9 @@ const BoardPage = () => {
 
     }, []);
 
-    // if (Object.keys(pokemons).length === 0){
-    //     history.replace('/game');
-    // }
+    if (Object.keys(pokemons).length === 0){
+        history.replace('/game');
+    }
 
     const handleClickBoardPlate = async (position) => {
         console.log("###: position", position)
