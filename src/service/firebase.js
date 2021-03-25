@@ -30,42 +30,15 @@ firebase.initializeApp({
 
      }
 
-     postPokemon = (key, arrPokemon, cb )=>{
+     postPokemon = (key, arrPokemon )=>{
         this.database.ref(`pokemons/${key}`).update({active: arrPokemon})
      }
 
 
-     addPokemon = (cb) =>{
+     addPokemon = (pokemon) =>{
          const newKey = this.database.ref().child('pokemons').push().key;
          this.database.ref('pokemons/' + newKey).set(
-             {
-                 "abilities": [
-                     "keen-eye",
-                     "tangled-feet",
-                     "big-pecks"
-                 ],
-                 "base_experience": 122,
-                 "height": 11,
-                 "weight": 300,
-                 "id": 17,
-                 "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
-                 "name": "pidgeotto",
-                 "stats": {
-                     "hp": 63,
-                     "attack": 60,
-                     "defense": 55,
-                     "special-attack": 50,
-                     "special-defense": 50,
-                     "speed": 71
-                 },
-                 "type": "normal",
-                 "values": {
-                     "top": 7,
-                     "right": 5,
-                     "bottom": 1,
-                     "left": 2
-                 }
-             }
+            pokemon
          )
      }
 }

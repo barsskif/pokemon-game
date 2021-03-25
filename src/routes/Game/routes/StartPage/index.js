@@ -51,7 +51,7 @@ const StartPage = () => {
 
     if (arrPokemon === null) {
         return <h1>Lading....</h1>
-    };
+    }
     return (
         <>
             <div>
