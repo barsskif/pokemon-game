@@ -36,6 +36,8 @@ const BoardPage = () => {
     const [steps, setSteps] = useState(0)
     const [youWin, setYouWin] = useState(null)
     const [typeGame, setTypeGame] = useState('')
+    const [hodPl1, setHodPl1] =useState(true)
+    const [hodPl2, setHodPl2] =useState(false)
     const history = useHistory();
 
 
@@ -124,7 +126,12 @@ const [count1, count2] = countWin(board, player1, player2)
                     <PlayerBoard
                         player={1}
                         cards={player1}
-                        onClickCard={(cards) => setChoiceCard(cards)}
+                         onClickCard={(cards) =>{
+
+                            hodPl1 ? setChoiceCard(cards): setChoiceCard(null)
+                            setHodPl2(true)
+                             setHodPl1(false)
+                         }}
                     />
                 </div>
                 <div className={s.board}>
@@ -149,7 +156,13 @@ const [count1, count2] = countWin(board, player1, player2)
                     <PlayerBoard
                         player={2}
                         cards={player2}
-                        onClickCard={(card) => setChoiceCard(card)}
+                        onClickCard={(card) => {
+
+                            hodPl2 ? setChoiceCard(card): ( setChoiceCard(null))
+                            setHodPl1(true)
+                            setHodPl2(false)
+
+                        }}
                     />
                 </div>
 

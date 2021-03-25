@@ -5,6 +5,7 @@ import {useState} from "react";
 
 const PlayerBoard = ({player, cards, onClickCard}) => {
     const [isSelected, setSelected] = useState(null)
+
     return (
         <>
             {
