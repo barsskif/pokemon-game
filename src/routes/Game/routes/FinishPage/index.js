@@ -5,7 +5,7 @@ import {FireBaseContext} from "../../../../context/FirebaseContext";
 import PokemonCard from "../../../../components/PokemonCard";
 import cn from 'classnames'
 import style from "../StartPage/style.module.css";
-import s from "../BoardPage/component/PlayerBoard/style.module.css";
+
 
 
 
@@ -26,7 +26,7 @@ const test =(id, i)=>{
     setState(pokemonPlayer2Card)
 
 }
-console.log(statePokemon)
+
 
 const handleClickButtonEndGame =()=>{
     fire.addPokemon(statePokemon);

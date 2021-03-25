@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom';
 
 import s from './style.module.css'
 import PlayerBoard from "./component/PlayerBoard";
-import FinishPage from "../FinishPage";
+import Result from "../../../../components/Result";
 
 const countWin = (board, player1, player2) => {
 let player1Count = player1.length;
@@ -34,11 +34,11 @@ const BoardPage = () => {
     })
     const [choiceCard, setChoiceCard] = useState(null)
     const [steps, setSteps] = useState(0)
-    const [youWin, setYouWin] = useState(false)
+    const [youWin, setYouWin] = useState(null)
+    const [typeGame, setTypeGame] = useState('')
     const history = useHistory();
 
-// console.log('### board', board)
-//     console.log('### player2',player2)
+
     useEffect(async ()=>{
         const boardResponse = await fetch('https://reactmarathon-api.netlify.app/api/board');
         const boardRequest = await  boardResponse.json();
@@ -64,8 +64,6 @@ const BoardPage = () => {
     }
 
     const handleClickBoardPlate = async (position) => {
-        // console.log("###: position", position)
-        // console.log("###: choiceCard", choiceCard)
 
         if (choiceCard){
             const params = {
@@ -83,7 +81,6 @@ const BoardPage = () => {
 
             const request = await res.json();
 
-            // console.log("### request", request)
             setBoard(request.data)
 
             if (choiceCard.player === 1 ){
@@ -105,26 +102,20 @@ const BoardPage = () => {
     useEffect(()=>{
 if(steps === 9){
 const [count1, count2] = countWin(board, player1, player2)
-
     if (count1 > count2){
-        console.log('YOU WIN')
-        history.replace('/game/finish')
+        setYouWin(true)
+        setTypeGame(prevState => 'win')
     }else if (count1 < count2){
-        console.log('No No No')
-        history.replace('/game/finish')
+        setTypeGame(prevState => 'lose')
+        setYouWin(true)
     }else{
-        alert('DRAW')
+        setTypeGame(prevState => 'draw')
+        setYouWin(true)
     }
 }
     },[steps])
 
 
-
-    // useEffect(()=>{
-    //     if (youWin === true){
-    //         history.replace('/game/finish')
-    //     }
-    // }, [youWin])
 
     return (
         <>
@@ -138,18 +129,20 @@ const [count1, count2] = countWin(board, player1, player2)
                 </div>
                 <div className={s.board}>
 
-                    {
-                        board.map((item)=>(
-                            <div
-                                key = {item.position}
-                                className={s.boardPlate}
-                                onClick={()=>{!item.card && handleClickBoardPlate(item.position)}}
-                            >
-                                {
-                                    item.card && <PokemonCard {...item.card} isAct minimize/>
-                                }
-                            </div>
-                        ))
+                      {
+                          youWin ?
+                              <Result  type={typeGame}/>
+                        :  board.map((item)=>(
+                                  <div
+                                      key = {item.position}
+                                      className={s.boardPlate}
+                                      onClick={()=>{!item.card && handleClickBoardPlate(item.position)}}
+                                  >
+                                      {
+                                          item.card && <PokemonCard {...item.card} isAct minimize/>
+                                      }
+                                  </div>
+                              ))
                     }
                 </div>
                 <div className={s.playerTwo}>
@@ -161,7 +154,6 @@ const [count1, count2] = countWin(board, player1, player2)
                 </div>
 
             </div>
-<button onClick={() => setYouWin(!youWin)}>sopdijgoidfjbgoidfjbo</button>
         </>
     );
 };
