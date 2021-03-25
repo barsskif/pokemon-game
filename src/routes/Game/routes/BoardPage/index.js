@@ -114,11 +114,16 @@ if(steps === 9){
 const [count1, count2] = countWin(board, player1, player2)
 
     if (count1 > count2){
-        alert('YOU WIN')
-        setYouWin(true)
+        console.log('YOU WIN')
+       setTimeout(()=>{
+           setYouWin(true)
+       }, 1000)
     }else if (count1 < count2){
-        alert('No No No')
-        setYouWin(true)
+        console.log('No No No')
+        setTimeout(()=>{
+            setYouWin(true)
+        }, 1000)
+
     }else{
         alert('DRAW')
     }
