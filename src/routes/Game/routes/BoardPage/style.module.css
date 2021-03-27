@@ -31,20 +31,28 @@
     background: none;
 }
 
-.card {
-    max-height: 14.8vw;
-    margin-top: -7vw;
-    padding: 0;
-}
+/*.card {*/
+/*    max-height: 14.8vw;*/
+/*    margin-top: -7vw;*/
+/*    padding: 0;*/
+/*}*/
 
-.card:first-child {
-    margin-top: 30px;
-}
+/*.card:first-child {*/
+/*    margin-top: 30px;*/
+/*}*/
 .playerOne {
     position: absolute;
     top: 4.3vw;
     left: 5vw;
-    width: 250px;
+    width: 18vw;
+    height: 50.3vw;
+}
+
+.playerTwo {
+    position: absolute;
+    top: 4.3vw;
+    right: 5vw;
+    width: 18vw;
     height: 50.3vw;
 }
 .pokemonCard.selected {
