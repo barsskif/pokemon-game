@@ -17,7 +17,7 @@ function HomePage({onChangePage}) {
 
             <Header
                 title='Pokemon Game'
-                descr='Ну что начнем'
+                descr='Ну что, начнем?'
                 onClickButton={handleClickButton}
             />
 

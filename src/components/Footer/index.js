@@ -7,7 +7,7 @@ const Footer = () => {
             <footer>
                 <div className={styles.wrapper}>
                     <h3>THANKS FOR VISITING</h3>
-                    <p>© 2021 #Andrey Perepelykov.</p>
+                    <p>© 2021 #Andrey Perepelyukov.</p>
                 </div>
             </footer>
 
